@@ -1,0 +1,48 @@
+<#include "testha_tabs.html" />
+<@tabs2 tab="hatest" />
+
+<@row>
+	<@columns>
+		<@messages infos=infos />
+		<@tform action='jsp/site/Portal.jsp?page=hatest'>
+			<@button type='submit' name='view_createHatest' class='pull-right' buttonIcon='plus' title='#i18n{hatest.manage_hatests.buttonAdd}' />
+		</@tform>
+
+    <h4>#i18n{hatest.manage_hatests.title}</h4>
+        
+    <@table>
+			<tr>
+				<input type="hidden" id="id" name="id"/>
+					<th>#i18n{hatest.manage_hatests.columnNom}</th>
+					<th>#i18n{hatest.manage_hatests.columnPrenom}</th>
+					<th>#i18n{hatest.manage_hatests.columnAdresse}</th>
+					<th>#i18n{hatest.manage_hatests.columnDatenaissance}</th>
+					<th>#i18n{portal.util.labelActions}</th>
+        </tr>
+				<#list hatest_list as hatest >
+        <tr>
+					<input type="hidden" id="id" name="id" />
+            <td>
+							${hatest.nom}
+            </td>    
+            <td>
+							${hatest.prenom}
+            </td>    
+            <td>
+							${hatest.adresse}
+            </td>    
+            <td>
+							${hatest.datenaissance}
+            </td>    
+					<td>
+						<@aButton href='jsp/site/Portal.jsp?page=hatest&view=modifyHatest&id=${hatest.id}' title='#i18n{portal.util.labelModify}' hideTitle=['all'] buttonIcon='pencil-square-o' />
+						
+						<@aButton href='jsp/site/Portal.jsp?page=hatest&action=confirmRemoveHatest&id=${hatest.id}' title='#i18n{portal.util.labelDelete}' buttonIcon='trash' hideTitle=['all'] color='btn-danger' />
+					</td>
+        </tr>
+        </#list>
+    </@table>
+	</@columns>
+</@row>
+
+  

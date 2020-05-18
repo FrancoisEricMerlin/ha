@@ -1,0 +1,27 @@
+<#include "manageha_tabs.html" />
+<@tabs2 tab="hatest" />
+
+<@box>
+	<@boxHeader title='#i18n{hatest.modify_hatest.title}' />
+	<@boxBody>
+    <@tform class="form-horizontal" method="post" name="modify_hatest" action="jsp/admin/plugins/hatest/ManageHatests.jsp">
+			<@messages errors=errors />
+			<input type="hidden" id="id" name="id" value="${hatest.id}"/>
+			<input type="hidden" value="${token}" name="token" />
+			
+				<@formGroup labelFor='nom' labelKey='#i18n{hatest.modify_hatest.labelNom}' mandatory=true>
+          		<@input type='text' id='nom' name='nom'  maxlength=50 value='${hatest.nom!\'\'}' tabIndex='0' />
+				</@formGroup>
+				<@formGroup labelFor='prenom' labelKey='#i18n{hatest.modify_hatest.labelPrenom}' mandatory=true>
+          		<@input type='text' id='prenom' name='prenom'  value='${hatest.prenom!\'\'}' tabIndex='1' />
+				</@formGroup>
+				<@formGroup labelFor='adresse' labelKey='#i18n{hatest.modify_hatest.labelAdresse}' mandatory=true>
+          		<@input type='text' id='adresse' name='adresse'  value='${hatest.adresse!\'\'}' tabIndex='2' />
+				</@formGroup>
+				<@formGroup labelFor='datenaissance' labelKey='#i18n{hatest.modify_hatest.labelDatenaissance}' mandatory=true>
+          		<@input type='text' id='datenaissance' name='datenaissance'  value='${hatest.datenaissance!\'\'}' tabIndex='3' />
+				</@formGroup>
+        <@actionButtons button1Name="action_modifyHatest" button2Name="view_manageHatest"/>
+    </@tform>
+	</@boxBody>
+</@box>
